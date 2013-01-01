@@ -1,5 +1,14 @@
-test:
-	gcc bt.c compare.c insert.c test.c -o test
+CC	= gcc
+OBJS	= bt.o compare.o insert.o test.o
+RM	= rm
+
+test:	$(OBJS)
+	$(CC) -o $@ $(OBJS)
+
+.c.o:
+	$(CC) -c $<
 
 clean:
-	rm -f test *.o
+	@$(RM) $(OBJS) test
+
+# sub1.o: header.h
